@@ -1,0 +1,129 @@
+{
+  "firefox": {
+    "default": "103.0",
+    "versions": {
+      "100.0": {
+        "image": "selenoid/vnc_firefox:100.0",
+        "port": "4444",
+        "path": "/wd/hub"
+      },
+	  "101.0": {
+        "image": "selenoid/vnc_firefox:101.0",
+        "port": "4444",
+        "path": "/wd/hub"
+      },
+	  "102.0": {
+        "image": "selenoid/vnc_firefox:102.0",
+        "port": "4444",
+        "path": "/wd/hub"
+      },
+	  "103.0": {
+        "image": "selenoid/vnc_firefox:103.0",
+        "port": "4444",
+        "path": "/wd/hub"
+      },
+          "104.0": {
+        "image": "selenoid/vnc_firefox:104.0",
+        "port": "4444",
+        "path": "/wd/hub"
+      }
+    }
+  },
+  "chrome": {
+    "default": "103.0",
+    "versions": {
+	  "100.0": {
+        "image": "selenoid/vnc_chrome:100.0",
+        "port": "4444",
+        "path": "/"
+      },
+      "101.0": {
+        "image": "selenoid/vnc_chrome:101.0",
+        "port": "4444",
+        "path": "/"
+      },
+      "102.0": {
+        "image": "selenoid/vnc_chrome:102.0",
+        "port": "4444",
+        "path": "/"
+      },
+      "103.0": {
+        "image": "selenoid/vnc_chrome:103.0",
+        "port": "4444",
+        "path": "/"
+      },
+      "104.0": {
+        "image": "selenoid/vnc_chrome:104.0",
+        "port": "4444",
+        "path": "/"
+      },
+      "105.0": {
+        "image": "selenoid/vnc_chrome:105.0",
+        "port": "4444",
+        "path": "/"
+      }
+    }
+  },
+  "MicrosoftEdge": {
+    "default": "103.0",
+    "versions": {
+	  "100.0": {
+        "image": "browsers/edge:100.0",
+        "port": "4444",
+        "path": "/"
+      },
+      "101.0": {
+        "image": "browsers/edge:101.0",
+        "port": "4444",
+        "path": "/"
+      },
+      "102.0": {
+        "image": "browsers/edge:102.0",
+        "port": "4444",
+        "path": "/"
+      },
+      "103.0": {
+        "image": "browsers/edge:103.0",
+        "port": "4444",
+        "path": "/"
+      },
+      "104.0": {
+        "image": "browsers/edge:104.0",
+        "port": "4444",
+        "path": "/"
+      }
+    }
+  },
+  "safari": {
+    "default": "15.0",
+    "versions": {
+	  "13.0": {
+        "image": "browsers/safari:13.0",
+        "port": "4444",
+        "path": "/"
+      },
+      "14.0": {
+        "image": "browsers/safari:14.0",
+        "port": "4444",
+        "path": "/"
+      },
+      "15.0": {
+        "image": "browsers/safari:15.0",
+        "port": "4444",
+        "path": "/"
+      }
+    }
+  },
+   "android": {
+    "default": "8.1",
+    "versions": {
+      "8.1": {
+        "image": "selenoid/vnc_android:8.1",
+        "port": "4444",
+        "path": "/wd/hub"
+      }
+    }
+  }
+}
+
+
