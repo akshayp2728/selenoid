@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    kompose.cmd: kompose convert -f docker-compose.yml
+    kompose.version: 1.26.0 (40646f47)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: shopizer-admin
+  name: shopizer-admin
+spec:
+  loadBalancerIP: 20.237.226.3
+  type: LoadBalancer
+  ports:
+    - name: "4200"
+      port: 4200
+      targetPort: 80
+  selector:
+    io.kompose.service: shopizer-admin
+
