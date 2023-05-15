@@ -27,7 +27,7 @@ spec:
       containers:
         - env:
             - name: APP_BASE_URL
-              value: http://40.78.123.164:8080
+              value: http://shopizer_api_ip_address:8080
             - name: APP_MERCHANT
               value: DEFAULT
           image: shopizerecomm/shopizer-shop-reactjs:latest

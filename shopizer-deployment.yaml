@@ -30,7 +30,7 @@ spec:
             - name: SPRING_PROFILES_ACTIVE
               value: mysql
             - name: config.cms.contentUrl
-              value: http://40.78.123.164:8080
+              value: http://shopizer_api_ip_address:8080
             - name: config.cms.method
               value: default
             - name: db.jdbcUrl

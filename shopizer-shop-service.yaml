@@ -9,7 +9,7 @@ metadata:
     io.kompose.service: shopizer-shop
   name: shopizer-shop
 spec:
-  loadBalancerIP: 20.232.2.125
+  loadBalancerIP: shopizer_shop_ip_address
   type: LoadBalancer
   ports:
     - name: "80"
