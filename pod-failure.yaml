@@ -1,0 +1,13 @@
+kind: PodChaos
+apiVersion: chaos-mesh.org/v1alpha1
+metadata:
+  namespace: default
+  name: podkkkill
+spec:
+  selector:
+    namespaces:
+      - default
+    labelSelectors:
+      io.kompose.service: shopizer-admin
+  mode: all
+  action: pod-kill
