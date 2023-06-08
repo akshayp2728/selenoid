@@ -1,0 +1,9 @@
+loki:
+  enabled: true
+  persistence:
+    enabled: true
+    storageClassName: default
+    size: 10Gi
+  service:
+    type: LoadBalancer
+
