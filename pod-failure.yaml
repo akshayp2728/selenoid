@@ -1,130 +1,13 @@
+kind: PodChaos
 apiVersion: chaos-mesh.org/v1alpha1
-kind: Workflow
 metadata:
   namespace: default
-  name: chaos-experiment
+  name: podkkkill
 spec:
-  entry: entry
-  templates:
-    - name: entry
-      templateType: Serial
-      deadline: 10m
-      children:
-        - serialchaos
-        - parallelchaos
-    - name: shop-pod-kill
-      templateType: PodChaos
-      deadline: 1m
-      podChaos:
-        selector:
-          namespaces:
-            - default
-          labelSelectors:
-            io.kompose.service: shopizer-shop
-        mode: one
-        action: pod-kill
-        gracePeriod: 30
-    - name: admin-cpu-stress
-      templateType: StressChaos
-      deadline: 2m
-      stressChaos:
-        selector:
-          namespaces:
-            - default
-          labelSelectors:
-            io.kompose.service: shopizer-admin
-        mode: all
-        stressors:
-          cpu:
-            workers: 4
-            load: 20
-    - name: shop-memory-stress
-      templateType: StressChaos
-      deadline: 2m
-      stressChaos:
-        selector:
-          namespaces:
-            - default
-          labelSelectors:
-            io.kompose.service: shopizer-shop
-        mode: all
-        stressors:
-          memory:
-            workers: 4
-            size: 4GB
-    - name: api-network-partition
-      templateType: NetworkChaos
-      deadline: 2m
-      networkChaos:
-        selector:
-          namespaces:
-            - default
-          labelSelectors:
-            io.kompose.service: shopizer
-        mode: all
-        action: partition
-        direction: from
-    - name: serialchaos
-      templateType: Serial
-      deadline: 8m
-      children:
-        - shop-pod-kill
-        - admin-cpu-stress
-        - shop-memory-stress
-        - api-network-partition
-    - name: admin-pod-kill
-      templateType: PodChaos
-      deadline: 1m
-      podChaos:
-        selector:
-          namespaces:
-            - default
-          labelSelectors:
-            io.kompose.service: shopizer-admin
-        mode: one
-        action: pod-kill
-        gracePeriod: 30
-    - name: gctrigger
-      templateType: JVMChaos
-      deadline: 2m
-      jvmChaos:
-        selector:
-          namespaces:
-            - default
-          labelSelectors:
-            io.kompose.service: shopizer-db
-        mode: all
-        action: gc
-        port: 9277
-        name: '--gc-1680111271'
-        value: ''
-        exception: ''
-        latency: 0
-        ruleData: ''
-    - name: jvm-chaos
-      templateType: JVMChaos
-      deadline: 2m
-      jvmChaos:
-        selector:
-          namespaces:
-            - default
-          labelSelectors:
-            io.kompose.service: shopizer
-        mode: all
-        action: return
-        port: 9277
-        class: AbstractAuthenticatinSuccessHandler
-        method: onAuthenticationSuccess
-        name: >-
-          AbstractAuthenticatinSuccessHandler-onAuthenticationSuccess-return-1680111271
-        value: truglobal
-        exception: ''
-        latency: 0
-        ruleData: ''
-    - name: parallelchaos
-      templateType: Parallel
-      deadline: 2m
-      children:
-        - admin-pod-kill
-        - gctrigger
-        - jvm-chaos
+  selector:
+    namespaces:
+      - default
+    labelSelectors:
+      io.kompose.service: shopizer-admin
+  mode: all
+  action: pod-kill
